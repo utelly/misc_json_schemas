@@ -1,5 +1,5 @@
 type: object
-description: ''
+description: all merge rules
 additionalProperties: false
 x-examples:
   example-1:
@@ -16,12 +16,10 @@ x-examples:
             sources:
               - string
             limit: 0
-
           property2:
             sources:
               - string
             limit: 0
-            
       Season:
         fields:
           - string
@@ -34,12 +32,10 @@ x-examples:
             sources:
               - string
             limit: 0
-            
           property2:
             sources:
               - string
             limit: 0
-            
       Episode:
         fields:
           - string
@@ -52,12 +48,10 @@ x-examples:
             sources:
               - string
             limit: 0
-            
           property2:
             sources:
               - string
             limit: 0
-            
       Location:
         fields:
           - string
@@ -70,12 +64,10 @@ x-examples:
             sources:
               - string
             limit: 0
-            
           property2:
             sources:
               - string
             limit: 0
-            
       Tag:
         fields:
           - string
@@ -88,12 +80,10 @@ x-examples:
             sources:
               - string
             limit: 0
-            
           property2:
             sources:
               - string
             limit: 0
-            
       Person:
         fields:
           - string
@@ -106,12 +96,10 @@ x-examples:
             sources:
               - string
             limit: 0
-            
           property2:
             sources:
               - string
             limit: 0
-            
       Channel:
         fields:
           - string
@@ -124,12 +112,10 @@ x-examples:
             sources:
               - string
             limit: 0
-            
           property2:
             sources:
               - string
             limit: 0
-            
       ContentRating:
         fields:
           - string
@@ -142,12 +128,10 @@ x-examples:
             sources:
               - string
             limit: 0
-            
           property2:
             sources:
               - string
             limit: 0
-            
       TitleHasPicture:
         fields:
           - string
@@ -160,12 +144,10 @@ x-examples:
             sources:
               - string
             limit: 0
-            
           property2:
             sources:
               - string
             limit: 0
-            
       TitleHasRating:
         fields:
           - string
@@ -178,12 +160,10 @@ x-examples:
             sources:
               - string
             limit: 0
-            
           property2:
             sources:
               - string
             limit: 0
-            
       TitleHasAdvisory:
         fields:
           - string
@@ -196,12 +176,10 @@ x-examples:
             sources:
               - string
             limit: 0
-            
           property2:
             sources:
               - string
             limit: 0
-            
       TitleHasContentRating:
         fields:
           - string
@@ -214,12 +192,10 @@ x-examples:
             sources:
               - string
             limit: 0
-            
           property2:
             sources:
               - string
             limit: 0
-            
       TitleHasPerson:
         fields:
           - string
@@ -232,12 +208,10 @@ x-examples:
             sources:
               - string
             limit: 0
-            
           property2:
             sources:
               - string
             limit: 0
-            
       TitleHasTag:
         fields:
           - string
@@ -250,12 +224,10 @@ x-examples:
             sources:
               - string
             limit: 0
-            
           property2:
             sources:
               - string
             limit: 0
-            
       TitleName:
         fields:
           - string
@@ -268,12 +240,10 @@ x-examples:
             sources:
               - string
             limit: 0
-            
           property2:
             sources:
               - string
             limit: 0
-            
       TitleDescription:
         fields:
           - string
@@ -286,12 +256,10 @@ x-examples:
             sources:
               - string
             limit: 0
-            
           property2:
             sources:
               - string
             limit: 0
-            
       TitleProducedInLocation:
         fields:
           - string
@@ -304,12 +272,10 @@ x-examples:
             sources:
               - string
             limit: 0
-            
           property2:
             sources:
               - string
             limit: 0
-            
       ShowRelateShow:
         fields:
           - string
@@ -322,12 +288,10 @@ x-examples:
             sources:
               - string
             limit: 0
-            
           property2:
             sources:
               - string
             limit: 0
-            
       TagName:
         fields:
           - string
@@ -340,12 +304,10 @@ x-examples:
             sources:
               - string
             limit: 0
-            
           property2:
             sources:
               - string
             limit: 0
-            
       TagRelateTag:
         fields:
           - string
@@ -358,12 +320,10 @@ x-examples:
             sources:
               - string
             limit: 0
-            
           property2:
             sources:
               - string
             limit: 0
-            
       PersonHasPicture:
         fields:
           - string
@@ -376,12 +336,10 @@ x-examples:
             sources:
               - string
             limit: 0
-            
           property2:
             sources:
               - string
             limit: 0
-            
       Biography:
         fields:
           - string
@@ -394,12 +352,10 @@ x-examples:
             sources:
               - string
             limit: 0
-            
           property2:
             sources:
               - string
             limit: 0
-            
       ChannelHasPicture:
         fields:
           - string
@@ -412,12 +368,10 @@ x-examples:
             sources:
               - string
             limit: 0
-            
           property2:
             sources:
               - string
             limit: 0
-            
       Availability:
         fields:
           - string
@@ -430,12 +384,10 @@ x-examples:
             sources:
               - string
             limit: 0
-            
           property2:
             sources:
               - string
             limit: 0
-            
       AvailabilityHasTarget:
         fields:
           - string
@@ -448,12 +400,10 @@ x-examples:
             sources:
               - string
             limit: 0
-            
           property2:
             sources:
               - string
             limit: 0
-            
       Picture:
         fields:
           - string
@@ -466,12 +416,10 @@ x-examples:
             sources:
               - string
             limit: 0
-            
           property2:
             sources:
               - string
             limit: 0
-            
       Rating:
         fields:
           - string
@@ -484,12 +432,10 @@ x-examples:
             sources:
               - string
             limit: 0
-            
           property2:
             sources:
               - string
             limit: 0
-            
       Advisory:
         fields:
           - string
@@ -502,12 +448,10 @@ x-examples:
             sources:
               - string
             limit: 0
-            
           property2:
             sources:
               - string
             limit: 0
-            
 properties:
   models:
     type: object
@@ -571,3 +515,4 @@ properties:
         $ref: ./select_rule.v1.yaml
 required:
   - models
+title: ''
