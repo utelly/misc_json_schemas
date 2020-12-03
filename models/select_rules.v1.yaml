@@ -1,0 +1,573 @@
+type: object
+description: ''
+additionalProperties: false
+x-examples:
+  example-1:
+    models:
+      Show:
+        fields:
+          - string
+        default:
+          sources:
+            - string
+          limit: 0
+        exceptions:
+          property1:
+            sources:
+              - string
+            limit: 0
+
+          property2:
+            sources:
+              - string
+            limit: 0
+            
+      Season:
+        fields:
+          - string
+        default:
+          sources:
+            - string
+          limit: 0
+        exceptions:
+          property1:
+            sources:
+              - string
+            limit: 0
+            
+          property2:
+            sources:
+              - string
+            limit: 0
+            
+      Episode:
+        fields:
+          - string
+        default:
+          sources:
+            - string
+          limit: 0
+        exceptions:
+          property1:
+            sources:
+              - string
+            limit: 0
+            
+          property2:
+            sources:
+              - string
+            limit: 0
+            
+      Location:
+        fields:
+          - string
+        default:
+          sources:
+            - string
+          limit: 0
+        exceptions:
+          property1:
+            sources:
+              - string
+            limit: 0
+            
+          property2:
+            sources:
+              - string
+            limit: 0
+            
+      Tag:
+        fields:
+          - string
+        default:
+          sources:
+            - string
+          limit: 0
+        exceptions:
+          property1:
+            sources:
+              - string
+            limit: 0
+            
+          property2:
+            sources:
+              - string
+            limit: 0
+            
+      Person:
+        fields:
+          - string
+        default:
+          sources:
+            - string
+          limit: 0
+        exceptions:
+          property1:
+            sources:
+              - string
+            limit: 0
+            
+          property2:
+            sources:
+              - string
+            limit: 0
+            
+      Channel:
+        fields:
+          - string
+        default:
+          sources:
+            - string
+          limit: 0
+        exceptions:
+          property1:
+            sources:
+              - string
+            limit: 0
+            
+          property2:
+            sources:
+              - string
+            limit: 0
+            
+      ContentRating:
+        fields:
+          - string
+        default:
+          sources:
+            - string
+          limit: 0
+        exceptions:
+          property1:
+            sources:
+              - string
+            limit: 0
+            
+          property2:
+            sources:
+              - string
+            limit: 0
+            
+      TitleHasPicture:
+        fields:
+          - string
+        default:
+          sources:
+            - string
+          limit: 0
+        exceptions:
+          property1:
+            sources:
+              - string
+            limit: 0
+            
+          property2:
+            sources:
+              - string
+            limit: 0
+            
+      TitleHasRating:
+        fields:
+          - string
+        default:
+          sources:
+            - string
+          limit: 0
+        exceptions:
+          property1:
+            sources:
+              - string
+            limit: 0
+            
+          property2:
+            sources:
+              - string
+            limit: 0
+            
+      TitleHasAdvisory:
+        fields:
+          - string
+        default:
+          sources:
+            - string
+          limit: 0
+        exceptions:
+          property1:
+            sources:
+              - string
+            limit: 0
+            
+          property2:
+            sources:
+              - string
+            limit: 0
+            
+      TitleHasContentRating:
+        fields:
+          - string
+        default:
+          sources:
+            - string
+          limit: 0
+        exceptions:
+          property1:
+            sources:
+              - string
+            limit: 0
+            
+          property2:
+            sources:
+              - string
+            limit: 0
+            
+      TitleHasPerson:
+        fields:
+          - string
+        default:
+          sources:
+            - string
+          limit: 0
+        exceptions:
+          property1:
+            sources:
+              - string
+            limit: 0
+            
+          property2:
+            sources:
+              - string
+            limit: 0
+            
+      TitleHasTag:
+        fields:
+          - string
+        default:
+          sources:
+            - string
+          limit: 0
+        exceptions:
+          property1:
+            sources:
+              - string
+            limit: 0
+            
+          property2:
+            sources:
+              - string
+            limit: 0
+            
+      TitleName:
+        fields:
+          - string
+        default:
+          sources:
+            - string
+          limit: 0
+        exceptions:
+          property1:
+            sources:
+              - string
+            limit: 0
+            
+          property2:
+            sources:
+              - string
+            limit: 0
+            
+      TitleDescription:
+        fields:
+          - string
+        default:
+          sources:
+            - string
+          limit: 0
+        exceptions:
+          property1:
+            sources:
+              - string
+            limit: 0
+            
+          property2:
+            sources:
+              - string
+            limit: 0
+            
+      TitleProducedInLocation:
+        fields:
+          - string
+        default:
+          sources:
+            - string
+          limit: 0
+        exceptions:
+          property1:
+            sources:
+              - string
+            limit: 0
+            
+          property2:
+            sources:
+              - string
+            limit: 0
+            
+      ShowRelateShow:
+        fields:
+          - string
+        default:
+          sources:
+            - string
+          limit: 0
+        exceptions:
+          property1:
+            sources:
+              - string
+            limit: 0
+            
+          property2:
+            sources:
+              - string
+            limit: 0
+            
+      TagName:
+        fields:
+          - string
+        default:
+          sources:
+            - string
+          limit: 0
+        exceptions:
+          property1:
+            sources:
+              - string
+            limit: 0
+            
+          property2:
+            sources:
+              - string
+            limit: 0
+            
+      TagRelateTag:
+        fields:
+          - string
+        default:
+          sources:
+            - string
+          limit: 0
+        exceptions:
+          property1:
+            sources:
+              - string
+            limit: 0
+            
+          property2:
+            sources:
+              - string
+            limit: 0
+            
+      PersonHasPicture:
+        fields:
+          - string
+        default:
+          sources:
+            - string
+          limit: 0
+        exceptions:
+          property1:
+            sources:
+              - string
+            limit: 0
+            
+          property2:
+            sources:
+              - string
+            limit: 0
+            
+      Biography:
+        fields:
+          - string
+        default:
+          sources:
+            - string
+          limit: 0
+        exceptions:
+          property1:
+            sources:
+              - string
+            limit: 0
+            
+          property2:
+            sources:
+              - string
+            limit: 0
+            
+      ChannelHasPicture:
+        fields:
+          - string
+        default:
+          sources:
+            - string
+          limit: 0
+        exceptions:
+          property1:
+            sources:
+              - string
+            limit: 0
+            
+          property2:
+            sources:
+              - string
+            limit: 0
+            
+      Availability:
+        fields:
+          - string
+        default:
+          sources:
+            - string
+          limit: 0
+        exceptions:
+          property1:
+            sources:
+              - string
+            limit: 0
+            
+          property2:
+            sources:
+              - string
+            limit: 0
+            
+      AvailabilityHasTarget:
+        fields:
+          - string
+        default:
+          sources:
+            - string
+          limit: 0
+        exceptions:
+          property1:
+            sources:
+              - string
+            limit: 0
+            
+          property2:
+            sources:
+              - string
+            limit: 0
+            
+      Picture:
+        fields:
+          - string
+        default:
+          sources:
+            - string
+          limit: 0
+        exceptions:
+          property1:
+            sources:
+              - string
+            limit: 0
+            
+          property2:
+            sources:
+              - string
+            limit: 0
+            
+      Rating:
+        fields:
+          - string
+        default:
+          sources:
+            - string
+          limit: 0
+        exceptions:
+          property1:
+            sources:
+              - string
+            limit: 0
+            
+          property2:
+            sources:
+              - string
+            limit: 0
+            
+      Advisory:
+        fields:
+          - string
+        default:
+          sources:
+            - string
+          limit: 0
+        exceptions:
+          property1:
+            sources:
+              - string
+            limit: 0
+            
+          property2:
+            sources:
+              - string
+            limit: 0
+            
+properties:
+  models:
+    type: object
+    additionalProperties: false
+    properties:
+      Show:
+        $ref: ./select_rule.v1.yaml
+      Season:
+        $ref: ./select_rule.v1.yaml
+      Episode:
+        $ref: ./select_rule.v1.yaml
+      Location:
+        $ref: ./select_rule.v1.yaml
+      Tag:
+        $ref: ./select_rule.v1.yaml
+      Person:
+        $ref: ./select_rule.v1.yaml
+      Channel:
+        $ref: ./select_rule.v1.yaml
+      ContentRating:
+        $ref: ./select_rule.v1.yaml
+      TitleHasPicture:
+        $ref: ./select_rule.v1.yaml
+      TitleHasRating:
+        $ref: ./select_rule.v1.yaml
+      TitleHasAdvisory:
+        $ref: ./select_rule.v1.yaml
+      TitleHasContentRating:
+        $ref: ./select_rule.v1.yaml
+      TitleHasPerson:
+        $ref: ./select_rule.v1.yaml
+      TitleHasTag:
+        $ref: ./select_rule.v1.yaml
+      TitleName:
+        $ref: ./select_rule.v1.yaml
+      TitleDescription:
+        $ref: ./select_rule.v1.yaml
+      TitleProducedInLocation:
+        $ref: ./select_rule.v1.yaml
+      ShowRelateShow:
+        $ref: ./select_rule.v1.yaml
+      TagName:
+        $ref: ./select_rule.v1.yaml
+      TagRelateTag:
+        $ref: ./select_rule.v1.yaml
+      PersonHasPicture:
+        $ref: ./select_rule.v1.yaml
+      Biography:
+        $ref: ./select_rule.v1.yaml
+      ChannelHasPicture:
+        $ref: ./select_rule.v1.yaml
+      Availability:
+        $ref: ./select_rule.v1.yaml
+      AvailabilityHasTarget:
+        $ref: ./select_rule.v1.yaml
+      Picture:
+        $ref: ./select_rule.v1.yaml
+      Rating:
+        $ref: ./select_rule.v1.yaml
+      Advisory:
+        $ref: ./select_rule.v1.yaml
+required:
+  - models

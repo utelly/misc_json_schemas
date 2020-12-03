@@ -1,0 +1,53 @@
+title: select_rule
+type: object
+x-examples:
+  example-1:
+    fields:
+      - string
+    default:
+      sources:
+        - string
+      limit: 0
+    exceptions:
+      property1:
+        sources:
+          - string
+        limit: 0
+      property2:
+        sources:
+          - string
+        limit: 0
+properties:
+  fields:
+    type: array
+    items:
+      type: string
+  default:
+    type: object
+    required:
+      - sources
+      - limit
+    properties:
+      sources:
+        type: array
+        items:
+          type: string
+      limit:
+        type: integer
+  exceptions:
+    type: object
+    additionalProperties:
+      type: object
+      required:
+        - sources
+        - limit      
+      properties:
+        sources:
+          type: array
+          items:
+            type: string
+        limit:
+          type: integer
+required:
+  - fields
+  - default
