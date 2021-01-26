@@ -2,7 +2,7 @@ title: select_rule
 type: object
 x-examples:
   example-1:
-    fields:
+    key_fields:
       - string
     default:
       sources:
@@ -17,8 +17,13 @@ x-examples:
         sources:
           - string
         limit: 0
+    fields:
+      property1:
+        - string
+      property2:
+        - string
 properties:
-  fields:
+  key_fields:
     type: array
     items:
       type: string
@@ -40,7 +45,7 @@ properties:
       type: object
       required:
         - sources
-        - limit      
+        - limit
       properties:
         sources:
           type: array
@@ -48,6 +53,17 @@ properties:
             type: string
         limit:
           type: integer
+  fields:
+    type: object
+    additionalProperties:
+      type: array
+      items:
+        type: string
+  primary_sources:
+    type: array
+    description: merge model should have at least theses sources
+    items:
+      type: string
 required:
-  - fields
+  - key_fields
   - default
