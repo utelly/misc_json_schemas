@@ -1,0 +1,112 @@
+additionalProperties: false
+properties:
+  dataset:
+    type: string
+  ressources:
+    additionalProperties: false
+    properties:
+      creative_works:
+        items:
+          additionalProperties: false
+          properties:
+            actions:
+              items:
+                additionalProperties: false
+                properties:
+                  action:
+                    enum:
+                    - warning
+                    - stop
+                    type: string
+                  operator:
+                    enum:
+                    - gte
+                    - lte
+                    - eq
+                    - gt
+                    type: string
+                  value:
+                    type: number
+                type: object
+              type: array
+            comparison:
+              enum:
+              - coverage_pcnt
+              - change_pcnt
+              type: string
+            dimension:
+              type: string
+            metric:
+              type: string
+            name:
+              type: string
+            operation:
+              enum:
+              - count
+              type: string
+          type: object
+        type: array
+    type: object
+title: dataset_validation
+type: object
+x-examples:
+  '1':
+    dataset: stv_stv
+    resources:
+      creative_works:
+      - actions:
+        - action: warning
+          operator: gte
+          value: 0.1
+        - action: stop
+          operator: gte
+          value: 0.2
+        comparision: change_pcnt
+        dimention: self.type
+        metric: self.guid
+        name: Creative works by type
+        operation: count
+      - actions:
+        - action: warning
+          operator: lte
+          value: 0.8
+        - action: stop
+          operator: lte
+          value: 0.6
+        comparision: coverage_pcnt
+        dimention: self.type
+        metric: self.duration
+        name: Duration coverage by type
+        operation: count
+      - actions:
+        - action: warning
+          operator: lte
+          value: 0.8
+        - action: stop
+          operator: lte
+          value: 0.6
+        comparision: coverage_pcnt
+        dimention: self.type
+        filters:
+        - operator: eq
+          property: self.titles.metadata.language
+          value: en
+        metric: self.guid
+        name: Creative Work with Enlish Title coverage by type
+        operation: count
+      - actions:
+        - action: warning
+          operator: lte
+          value: 0.2
+        - action: stop
+          operator: lte
+          value: 0.15
+        comparision: coverage_pcnt
+        dimention: self.type
+        filters:
+        - operator: eq
+          property: self.availabilities.location.names.country.code
+          value: GB
+        metric: self.guid
+        name: Creative Works with NetflixUK availability by type
+        operation: count
