@@ -1,52 +1,4 @@
 additionalProperties: false
-properties:
-  dataset:
-    type: string
-  ressources:
-    additionalProperties: false
-    properties:
-      creative_works:
-        items:
-          additionalProperties: false
-          properties:
-            actions:
-              items:
-                additionalProperties: false
-                properties:
-                  action:
-                    enum:
-                      - warning
-                      - stop
-                    type: string
-                  operator:
-                    enum:
-                      - gte
-                      - lte
-                      - eq
-                      - gt
-                    type: string
-                  value:
-                    type: number
-                type: object
-              type: array
-            comparison:
-              enum:
-                - coverage_pcnt
-                - change_pcnt
-              type: string
-            dimension:
-              type: string
-            metric:
-              type: string
-            name:
-              type: string
-            operation:
-              enum:
-                - count
-              type: string
-          type: object
-        type: array
-    type: object
 title: dataset_validation
 type: object
 x-examples:
@@ -112,14 +64,14 @@ x-examples:
           operation: count
 x-internal: false
 examples:
-  - data: stv_stv
+  - data: merged_stv
     resources:
-      creative_works:
+      creative_work:
         - name: Creative works by type
-          metric: self.guid
-          dimention: self.type
+          metric: guid
+          dimension: type
           operation: count
-          comparision: change_pcnt
+          comparison: change_pcnt
           actions:
             - action: warning
               operator: gte
@@ -128,10 +80,10 @@ examples:
               operator: gte
               value: 0.2
         - name: Duration coverage by type
-          metric: self.duration
-          dimention: self.type
+          metric: duration
+          dimension: type
           operation: count
-          comparision: coverage_pcnt
+          comparison: coverage_pcnt
           actions:
             - action: warning
               operator: lte
@@ -140,12 +92,12 @@ examples:
               operator: lte
               value: 0.6
         - name: Creative Work with Enlish Title coverage by type
-          metric: self.guid
-          dimention: self.type
+          metric: guid
+          dimension: type
           operation: count
-          comparision: coverage_pcnt
+          comparison: coverage_pcnt
           filters:
-            - property: self.titles.metadata.language
+            - property: titles.metadata.language
               operator: eq
               value: en
           actions:
@@ -156,12 +108,12 @@ examples:
               operator: lte
               value: 0.6
         - name: Creative Works with NetflixUK availability by type
-          metric: self.guid
-          dimention: self.type
+          metric: guid
+          dimension: type
           operation: count
-          comparision: coverage_pcnt
+          comparison: coverage_pcnt
           filters:
-            - property: self._embedded.availabilities._embedded.location.names.country.code
+            - property: _embedded.availability._embedded.location.names.country_code
               operator: eq
               value: GB
           actions:
@@ -171,3 +123,51 @@ examples:
             - action: stop
               operator: lte
               value: 0.15
+properties:
+  dataset:
+    type: string
+  ressources:
+    additionalProperties: false
+    type: object
+    properties:
+      creative_work:
+        type: array
+        items:
+          additionalProperties: false
+          type: object
+          properties:
+            actions:
+              type: array
+              items:
+                additionalProperties: false
+                type: object
+                properties:
+                  action:
+                    enum:
+                      - warning
+                      - stop
+                    type: string
+                  operator:
+                    enum:
+                      - gte
+                      - lte
+                      - eq
+                      - gt
+                    type: string
+                  value:
+                    type: number
+            comparison:
+              enum:
+                - coverage_pcnt
+                - change_pcnt
+              type: string
+            dimension:
+              type: string
+            metric:
+              type: string
+            name:
+              type: string
+            operation:
+              enum:
+                - count
+              type: string
