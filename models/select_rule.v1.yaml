@@ -1,69 +1,72 @@
+additionalProperties: false
+properties:
+  default:
+    additionalProperties: false
+    properties:
+      limit:
+        type: integer
+      sources:
+        items:
+          type: string
+        type: array
+    required:
+    - sources
+    - limit
+    type: object
+  exceptions:
+    additionalProperties:
+      additionalProperties: false
+      properties:
+        limit:
+          type: integer
+        sources:
+          items:
+            type: string
+          type: array
+      required:
+      - sources
+      - limit
+      type: object
+    type: object
+  fields:
+    additionalProperties:
+      items:
+        type: string
+      type: array
+    type: object
+  key_fields:
+    items:
+      type: string
+    type: array
+  primary_sources:
+    description: merge model should have at least theses sources
+    items:
+      type: string
+    type: array
+required:
+- key_fields
+- default
 title: select_rule
 type: object
 x-examples:
   example-1:
-    key_fields:
-      - string
     default:
-      sources:
-        - string
       limit: 0
+      sources:
+      - string
     exceptions:
       property1:
-        sources:
-          - string
         limit: 0
+        sources:
+        - string
       property2:
-        sources:
-          - string
         limit: 0
+        sources:
+        - string
     fields:
       property1:
-        - string
+      - string
       property2:
-        - string
-properties:
-  key_fields:
-    type: array
-    items:
-      type: string
-  default:
-    type: object
-    required:
-      - sources
-      - limit
-    properties:
-      sources:
-        type: array
-        items:
-          type: string
-      limit:
-        type: integer
-  exceptions:
-    type: object
-    additionalProperties:
-      type: object
-      required:
-        - sources
-        - limit
-      properties:
-        sources:
-          type: array
-          items:
-            type: string
-        limit:
-          type: integer
-  fields:
-    type: object
-    additionalProperties:
-      type: array
-      items:
-        type: string
-  primary_sources:
-    type: array
-    description: merge model should have at least theses sources
-    items:
-      type: string
-required:
-  - key_fields
-  - default
+      - string
+    key_fields:
+    - string
