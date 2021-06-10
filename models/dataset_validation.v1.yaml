@@ -1,77 +1,102 @@
-additionalProperties: false
-title: dataset_validation
+description: ''
 type: object
+properties:
+  dataset:
+    type: string
+    minLength: 1
+  resources:
+    type: object
+    properties:
+      creative_work:
+        type: array
+        uniqueItems: true
+        minItems: 1
+        items:
+          required:
+            - name
+            - metric
+            - dimension
+            - operation
+          properties:
+            name:
+              type: string
+              minLength: 1
+            metric:
+              type: string
+              minLength: 1
+            dimension:
+              type: string
+              minLength: 1
+            operation:
+              type: string
+              minLength: 1
+            comparison:
+              type: object
+              properties:
+                data:
+                  type: string
+                  minLength: 1
+                calculation:
+                  type: string
+                  minLength: 1
+              required:
+                - data
+                - calculation
+            filters:
+              type: array
+              uniqueItems: true
+              minItems: 1
+              items:
+                required:
+                  - property
+                  - operator
+                properties:
+                  property:
+                    type: string
+                    minLength: 1
+                  operator:
+                    type: string
+                    minLength: 1
+                  value:
+                    type: array
+                    items:
+                      required: []
+                      properties: {}
+            actions:
+              type: array
+              uniqueItems: true
+              minItems: 1
+              items:
+                required:
+                  - action
+                  - operator
+                  - value
+                properties:
+                  action:
+                    type: string
+                    minLength: 1
+                  operator:
+                    type: string
+                    minLength: 1
+                  value:
+                    type: number
+    required:
+      - creative_work
+required:
+  - dataset
+  - resources
 x-examples:
-  '1':
-    dataset: stv_stv
-    resources:
-      creative_works:
-        - actions:
-            - action: warning
-              operator: gte
-              value: 0.1
-            - action: stop
-              operator: gte
-              value: 0.2
-          comparision: change_pcnt
-          dimention: self.type
-          metric: self.guid
-          name: Creative works by type
-          operation: count
-        - actions:
-            - action: warning
-              operator: lte
-              value: 0.8
-            - action: stop
-              operator: lte
-              value: 0.6
-          comparision: coverage_pcnt
-          dimention: self.type
-          metric: self.duration
-          name: Duration coverage by type
-          operation: count
-        - actions:
-            - action: warning
-              operator: lte
-              value: 0.8
-            - action: stop
-              operator: lte
-              value: 0.6
-          comparision: coverage_pcnt
-          dimention: self.type
-          filters:
-            - operator: eq
-              property: self.titles.metadata.language
-              value: en
-          metric: self.guid
-          name: Creative Work with Enlish Title coverage by type
-          operation: count
-        - actions:
-            - action: warning
-              operator: lte
-              value: 0.2
-            - action: stop
-              operator: lte
-              value: 0.15
-          comparision: coverage_pcnt
-          dimention: self.type
-          filters:
-            - operator: eq
-              property: self.availabilities.location.names.country.code
-              value: GB
-          metric: self.guid
-          name: Creative Works with NetflixUK availability by type
-          operation: count
-x-internal: false
-examples:
-  - data: merged_stv
+  example-1:
+    dataset: merged_stv
     resources:
       creative_work:
         - name: Creative works by type
           metric: guid
           dimension: type
           operation: count
-          comparison: change_pcnt
+          comparison:
+            data: existing
+            calculation: change_pcnt
           actions:
             - action: warning
               operator: gte
@@ -83,7 +108,15 @@ examples:
           metric: duration
           dimension: type
           operation: count
-          comparison: coverage_pcnt
+          comparison:
+            data: new
+            calculation: coverage_pcnt
+          filters:
+            - property: type
+              operator: in
+              value:
+                - movie
+                - episode
           actions:
             - action: warning
               operator: lte
@@ -91,15 +124,17 @@ examples:
             - action: stop
               operator: lte
               value: 0.6
-        - name: Creative Work with Enlish Title coverage by type
+        - name: Creative Work with English Title coverage by type
           metric: guid
           dimension: type
           operation: count
-          comparison: coverage_pcnt
-          filters:
-            - property: titles.metadata.language
-              operator: eq
-              value: en
+          comparison:
+            data: new
+            calculation: coverage_pcnt
+            filters:
+              - property: titles.metadata.language
+                operator: eq
+                value: en
           actions:
             - action: warning
               operator: lte
@@ -107,15 +142,20 @@ examples:
             - action: stop
               operator: lte
               value: 0.6
-        - name: Creative Works with NetflixUK availability by type
+        - name: Creative Works with UK availability by type
           metric: guid
           dimension: type
           operation: count
-          comparison: coverage_pcnt
-          filters:
-            - property: _embedded.availability._embedded.location.names.country_code
-              operator: eq
-              value: GB
+          comparison:
+            data: new
+            calculation: coverage_pcnt
+            filters:
+              - property: creative_work._embedded.availability._embedded.location.names.country_code
+                operator: eq
+                value: GB
+              - property: creative_work._embedded.availability._embedded.location.names.name
+                operator: eq
+                value: glasgow
           actions:
             - action: warning
               operator: lte
@@ -123,51 +163,80 @@ examples:
             - action: stop
               operator: lte
               value: 0.15
-properties:
-  dataset:
-    type: string
-  ressources:
-    additionalProperties: false
-    type: object
-    properties:
+examples:
+  - dataset: merged_stv
+    resources:
       creative_work:
-        type: array
-        items:
-          additionalProperties: false
-          type: object
-          properties:
-            actions:
-              type: array
-              items:
-                additionalProperties: false
-                type: object
-                properties:
-                  action:
-                    enum:
-                      - warning
-                      - stop
-                    type: string
-                  operator:
-                    enum:
-                      - gte
-                      - lte
-                      - eq
-                      - gt
-                    type: string
-                  value:
-                    type: number
-            comparison:
-              enum:
-                - coverage_pcnt
-                - change_pcnt
-              type: string
-            dimension:
-              type: string
-            metric:
-              type: string
-            name:
-              type: string
-            operation:
-              enum:
-                - count
-              type: string
+        - name: Creative works by type
+          metric: guid
+          dimension: type
+          operation: count
+          comparison:
+            data: existing
+            calculation: change_pcnt
+          actions:
+            - action: warning
+              operator: gte
+              value: 0.1
+            - action: stop
+              operator: gte
+              value: 0.2
+        - name: Duration coverage by type
+          metric: duration
+          dimension: type
+          operation: count
+          comparison:
+            data: new
+            calculation: coverage_pcnt
+          filters:
+            - property: type
+              operator: in
+              value:
+                - movie
+                - episode
+          actions:
+            - action: warning
+              operator: lte
+              value: 0.8
+            - action: stop
+              operator: lte
+              value: 0.6
+        - name: Creative Work with English Title coverage by type
+          metric: guid
+          dimension: type
+          operation: count
+          comparison:
+            data: new
+            calculation: coverage_pcnt
+            filters:
+              - property: titles.metadata.language
+                operator: eq
+                value: en
+          actions:
+            - action: warning
+              operator: lte
+              value: 0.8
+            - action: stop
+              operator: lte
+              value: 0.6
+        - name: Creative Works with UK availability by type
+          metric: guid
+          dimension: type
+          operation: count
+          comparison:
+            data: new
+            calculation: coverage_pcnt
+            filters:
+              - property: creative_work._embedded.availability._embedded.location.names.country_code
+                operator: eq
+                value: GB
+              - property: creative_work._embedded.availability._embedded.location.names.name
+                operator: eq
+                value: glasgow
+          actions:
+            - action: warning
+              operator: lte
+              value: 0.2
+            - action: stop
+              operator: lte
+              value: 0.15
